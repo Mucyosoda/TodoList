@@ -1,5 +1,3 @@
-// import _ from 'lodash';
-
 import './style.css';
 
 const listTable = [{
@@ -17,11 +15,10 @@ const listTable = [{
   completed: true,
   index: 2,
 },
-'rwanda',
 ];
 
 const todoList = document.querySelector('.todo-list');
-// eslint-disable-no-use-before-define
+
 function displayTodo(item) {
   return ` <div class='todo'>
   <div class="checkbox"><input type="checkbox"></div>
