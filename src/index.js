@@ -1,4 +1,5 @@
 import './style.css';
+import { toggleChecked } from './check.js';
 
 const listTable = [
   {
@@ -21,42 +22,12 @@ const listTable = [
 
 let completedTasks = [];
 let newListTable;
-// create array contain index of completed todo
+
 const updateCompletedListArray = () => {
   completedTasks = [];
   newListTable.forEach((task) => {
     if (task.completed) completedTasks.push(`${newListTable.indexOf(task)}`);
   });
-};
-
-const saveLocalList = () => {
-  localStorage.setItem('data', JSON.stringify(newListTable));
-};
-
-const toggleChecked = (e) => {
-  const checkStatus = e.target.checked;
-  const task = e.target.parentElement;
-  const taskId = task.id;
-  let removed = false;
-
-  newListTable[taskId].completed = checkStatus;
-
-  if (completedTasks.length === 0) {
-    completedTasks.push(taskId);
-  } else {
-    completedTasks.forEach((index) => {
-      if (taskId === index) {
-        completedTasks.splice(completedTasks.indexOf(index), 1);
-        removed = true;
-      }
-    });
-
-    if (!removed) {
-      completedTasks.push(taskId);
-      completedTasks.sort();
-    }
-  }
-  saveLocalList();
 };
 
 const updateListView = () => {
@@ -86,7 +57,7 @@ const updateListView = () => {
     checkbox.id = `c${newListTable.indexOf(task)}`;
     checkbox.type = 'checkbox';
     checkbox.checked = task.completed;
-    checkbox.onclick = toggleChecked;
+    checkbox.addEventListener('click', toggleChecked);
 
     listItem.appendChild(checkbox);
     listItem.appendChild(taskLabel);
@@ -103,3 +74,6 @@ if (localStorage.getItem('data') === null) {
 newListTable = JSON.parse(localStorage.getItem('data'));
 updateCompletedListArray();
 updateListView();
+
+export default newListTable;
+export { completedTasks };
