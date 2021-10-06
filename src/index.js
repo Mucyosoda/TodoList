@@ -1,5 +1,8 @@
+/* eslint-disable import/no-cycle */
+/* eslint-disable prefer-const */
+
 import './style.css';
-import { toggleChecked } from './check.js';
+import toggleChecked from './check.js';
 
 const listTable = [
   {
@@ -20,11 +23,15 @@ const listTable = [
   },
 ];
 
-let completedTasks = [];
-let newListTable;
+const completedTasks = [];
+
+if (localStorage.getItem('data') === null) {
+  localStorage.setItem('data', JSON.stringify(listTable));
+}
+
+const newListTable = JSON.parse(localStorage.getItem('data'));
 
 const updateCompletedListArray = () => {
-  completedTasks = [];
   newListTable.forEach((task) => {
     if (task.completed) completedTasks.push(`${newListTable.indexOf(task)}`);
   });
@@ -67,13 +74,7 @@ const updateListView = () => {
   });
 };
 
-if (localStorage.getItem('data') === null) {
-  localStorage.setItem('data', JSON.stringify(listTable));
-}
-
-newListTable = JSON.parse(localStorage.getItem('data'));
 updateCompletedListArray();
 updateListView();
 
-export default newListTable;
-export { completedTasks };
+export { newListTable, completedTasks };

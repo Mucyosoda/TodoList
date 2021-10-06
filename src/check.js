@@ -1,11 +1,12 @@
-import newListTable from './index.js';
-import { completedTasks } from './index.js';
+/* eslint-disable import/no-cycle */
+
+import { newListTable, completedTasks } from './index.js';
 
 const saveLocalList = () => {
   localStorage.setItem('data', JSON.stringify(newListTable));
 };
 
-export const toggleChecked = (e) => {
+const toggleChecked = (e) => {
   const checkStatus = e.target.checked;
   const task = e.target.parentElement;
   const taskId = task.id;
@@ -30,3 +31,5 @@ export const toggleChecked = (e) => {
   }
   saveLocalList();
 };
+
+export default toggleChecked;
