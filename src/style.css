@@ -1,0 +1,239 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgba(128, 128, 128, 0.233);
+  font-family: 'Poppins', sans-serif;
+  margin-top: 50px;
+}
+
+.input-line {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 101.3%;
+  background-color: rgba(247, 241, 241);
+  height: 3rem;
+  padding: 10px;
+}
+
+.fa-level-down-alt {
+  color: rgba(0, 0, 0, 0.185);
+  transform: rotate(90deg);
+}
+
+ul#taskList {
+  padding: 0 25px;
+}
+
+li.task {
+  list-style-type: none;
+  font-size: 1.5em;
+  height: 3rem;
+  padding: 7px 0 0 10px;
+  transition: all 0.1s ease-in-out;
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition: all 0.1s ease-in-out;
+  background-color: rgba(247, 241, 241);
+  margin: 0.2rem;
+}
+
+li.task:hover {
+  background-color: rgba(100, 100, 100, 0.158);
+}
+
+input.taskCheckbox {
+  position: relative;
+  float: left;
+  margin: 10px;
+  -webkit-appearance: none;
+  width: 15px;
+  height: 15px;
+  border: 1px solid rgba(0, 0, 0, 0.384);
+  border-radius: 5px;
+  outline: none;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition: all 0.1s ease-in-out;
+}
+
+input.taskCheckbox:checked {
+  background-color: #fff;
+}
+
+input.taskCheckbox:checked::after {
+  color: black;
+  content: '\2713';
+  display: block;
+  font-size: 12px;
+  height: 12px;
+  position: absolute;
+  width: 12px;
+  left: 0.5px;
+  bottom: 2px;
+}
+
+input.taskCheckbox + label.taskLabel {
+  color: black;
+}
+
+input.taskCheckbox:checked + label.taskLabel {
+  font-style: italic;
+  text-decoration: line-through;
+  color: grey;
+}
+
+input[placeholder] {
+  font-size: 1.3em;
+  font-style: italic;
+  font-family: 'Poppins', sans-serif;
+  color: black;
+}
+
+#container {
+  width: 90%;
+  height: 500px;
+  position: relative;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 5px;
+  padding-top: 50px;
+  padding-right: 30px;
+}
+
+#header {
+  color: rgba(0, 0, 0, 0.589);
+  padding: 5px;
+  padding-right: 10px;
+  font-family: 'poppins', sans-serif;
+  font-size: 0.7rem;
+  margin-left: 30px;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(247, 241, 241);
+}
+
+.iconss {
+  padding-top: 10px;
+}
+
+#inputContainer {
+  padding: 15px;
+  margin-left: 14px;
+}
+
+#inputContainer #taskInput {
+  width: 60rem;
+  border: none;
+  box-sizing: border-box;
+  background-color: rgba(247, 241, 241);
+  outline: none;
+}
+
+#listWrapper {
+  position: absolute;
+  bottom: 50px;
+  top: 160px;
+  right: 0;
+  left: 0;
+}
+
+#deleteBtnWrapper {
+  width: 100%;
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 15px;
+  padding: 0 15px;
+}
+
+#deleteBtnWrapper #deleteCompletedBtn {
+  float: left;
+  -webkit-appearance: none;
+  opacity: 0.5;
+  color: #000;
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 3px;
+  border: 1px solid black;
+  width: 150px;
+  height: 25px;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.1s ease-in-out;
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition: all 0.1s ease-in-out;
+}
+
+#deleteBtnWrapper #deleteCompletedBtn:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+
+#deleteBtnWrapper #clearTasksBtn {
+  float: right;
+  -webkit-appearance: none;
+  opacity: 0.5;
+  color: black;
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 3px;
+  border: 1px solid black;
+  width: 150px;
+  height: 25px;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.1s ease-in-out;
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition: all 0.1s ease-in-out;
+}
+
+#deleteBtnWrapper #clearTasksBtn:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+
+.dotbtn {
+  float: right;
+  padding-right: 10px;
+  cursor: crosshair;
+  color: rgba(0, 0, 0, 0.322);
+}
+
+.deleteTaskBtn {
+  float: right;
+  color: rgba(0, 0, 0, 0.322);
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 5px;
+  visibility: hidden;
+  opacity: 0;
+  line-height: 0;
+  margin-right: 5px;
+  cursor: default;
+  transition: all 0.1s ease-in-out;
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition: all 0.1s ease-in-out;
+}
+
+.footer {
+  background-color: rgb(206, 202, 202);
+  text-align: center;
+  min-height: 10vh;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  font-size: 24px;
+  width: 95%;
+}
+
+.footer a {
+  color: black;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
