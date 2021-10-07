@@ -2,7 +2,7 @@
 
 # Todo list
 
-> this project is to display todo list from localstorage
+> this project is designed to manage daily activities, you can add remove edit and delete activity, you can select complete or uncomplete activities.
 
 ![screenshot](./app_screenshot.png)
 
@@ -18,7 +18,7 @@ Additional description about the project and its features.
 
 ## Live Demo
 
-[Live Demo Link](https://livedemo.com)
+[Live Demo Link](https://mucyosoda.github.io/TodoList/)
 
 ## Getting Started
 
