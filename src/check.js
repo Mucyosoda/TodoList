@@ -1,35 +1,14 @@
-/* eslint-disable import/no-cycle */
+const taskCompleted = (e, items) => {
+  const complete = e.target;
+  items = [...JSON.parse(localStorage.getItem('items'))];
 
-import { newListTable, completedTasks } from './index.js';
-
-const saveLocalList = () => {
-  localStorage.setItem('data', JSON.stringify(newListTable));
-};
-
-const toggleChecked = (e) => {
-  const checkStatus = e.target.checked;
-  const task = e.target.parentElement;
-  const taskId = task.id;
-  let removed = false;
-
-  newListTable[taskId].completed = checkStatus;
-
-  if (completedTasks.length === 0) {
-    completedTasks.push(taskId);
-  } else {
-    completedTasks.forEach((index) => {
-      if (taskId === index) {
-        completedTasks.splice(completedTasks.indexOf(index), 1);
-        removed = true;
-      }
-    });
-
-    if (!removed) {
-      completedTasks.push(taskId);
-      completedTasks.sort();
+  complete.parentElement.classList.add('completed');
+  for (let i = 0; i < items.length; i += 1) {
+    if (complete.parentNode.id === items[i].id.toString()) {
+      items[i].completed = complete.checked;
     }
   }
-  saveLocalList();
+  localStorage.setItem('items', JSON.stringify(items));
 };
 
-export default toggleChecked;
+export default taskCompleted;
