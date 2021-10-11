@@ -47,7 +47,7 @@ open index.html in your local browser
 👤**Mucyo**
 
 - GitHub: [@githubhandle](https://github.com/Mucyosoda)
-- Twitter: [@twitterhandle](https://twitter.com/home)
+- Twitter: [@twitterhandle](https://twitter.com/ClaudeMucyo1)
 - LinkedIn: [LinkedIn](linkedin.com/in/claude-mucyo-b95405106)
 
 ## 🤝 Contributing
