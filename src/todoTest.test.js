@@ -1,5 +1,4 @@
-import { addTaskList, removeTaskList} from './todoTest.js';
-
+import { addTaskList, removeTaskList } from './todoTest.js';
 
 const { dom } = require('./testdom.js');
 
