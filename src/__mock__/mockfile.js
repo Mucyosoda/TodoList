@@ -32,14 +32,13 @@ const taskUncompleted = () => {
 
   return items;
 };
+const items = [
+  { id: 1, description: 'item 1', complete: true },
+  { id: 2, description: 'item 2', complete: true },
+  { id: 3, description: 'item 3', complete: false },
+];
 
-const removeTasks = () => {
-  const items = [
-    { id: 1, description: 'item 1', complete: true },
-    { id: 2, description: 'item 2', complete: true },
-    { id: 3, description: 'item 3', complete: false },
-  ];
-
+const removeTasks = (items) => {
   for (let i = 0; i < items.length; i += 1) {
     items.filter((item) => {
       if (item.complete) {
@@ -59,7 +58,7 @@ const removeTasks = () => {
 
   return items;
 };
-
+removeTasks(items);
 exports.taskCompleted = taskCompleted;
 exports.taskUncompleted = taskUncompleted;
 exports.removeTasks = removeTasks;
