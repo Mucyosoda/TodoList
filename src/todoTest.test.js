@@ -1,5 +1,7 @@
 import { addTaskList, removeTaskList } from './todoTest.js';
 
+const { dom } = require('./testdom.js');
+
 describe(' add new task', () => {
   test('check addTaskList function', () => {
     // Arrange
@@ -15,6 +17,10 @@ describe(' add new task', () => {
     expect(latestElement.description).toBe('Add new task');
     expect(latestElement.index).toBe(testArray.length);
   });
+
+  test('array is not null', () => {
+    expect(addTaskList).not.toBeNull();
+  });
 });
 
 describe('remove task', () => {
@@ -26,5 +32,8 @@ describe('remove task', () => {
     const result = removeTaskList(itemtodo, id);
     // Assert
     expect(result).toBe(false);
+  });
+  test('should not have childs', () => {
+    expect(dom.window.document.querySelector('#test-2').childElementCount).toBe(1);
   });
 });

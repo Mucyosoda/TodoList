@@ -1,4 +1,4 @@
-import { tasktodo } from '../testdom.js';
+import { tasktodo, inputEvent } from '../testdom.js';
 
 const taskCompleted = () => {
   const items = [
@@ -35,9 +35,9 @@ const taskUncompleted = () => {
 
 const removeTasks = () => {
   const items = [
-    { description: 'item 1', complete: true },
-    { description: 'item 2', complete: true },
-    { description: 'item 3', complete: false },
+    { id: 1, description: 'item 1', complete: true },
+    { id: 2, description: 'item 2', complete: true },
+    { id: 3, description: 'item 3', complete: false },
   ];
 
   for (let i = 0; i < items.length; i += 1) {
@@ -59,6 +59,7 @@ const removeTasks = () => {
 
   return items;
 };
+
 exports.taskCompleted = taskCompleted;
 exports.taskUncompleted = taskUncompleted;
 exports.removeTasks = removeTasks;

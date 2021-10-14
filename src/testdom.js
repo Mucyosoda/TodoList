@@ -17,3 +17,4 @@ const dom = new JSDOM(`<!DOCTYPE html>
 
 const tasktodo = dom.window.document.getElementById('2');
 exports.tasktodo = tasktodo;
+exports.dom = dom;
