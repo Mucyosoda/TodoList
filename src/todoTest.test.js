@@ -2,16 +2,15 @@ import { addTaskList, removeTaskList } from './todoTest.js';
 
 const { dom } = require('./testdom.js');
 
-describe(' add new task', () => {
-  test('check addTaskList function', () => {
-    let testArray = [1, 2, 3, 4];
-    testArray = addTaskList(testArray, 'Add new task');
-
-    const latestElement = testArray[testArray.length - 1];
-    expect(testArray).toHaveLength(5);
-    expect(latestElement.completed).toBe(false);
-    expect(latestElement.description).toBe('Add new task');
-    expect(latestElement.index).toBe(testArray.length);
+describe('add new task', () => {
+  const empArr = [];
+  const item = {
+    completed: false,
+    description: 'Laxmi',
+    index: 1,
+  };
+  test('array length is 1', () => {
+    expect(addTaskList(empArr, item.description)).toContainEqual(item);
   });
 
   test('array is not null', () => {
@@ -28,7 +27,7 @@ describe('remove task', () => {
   });
   test('should not have childs', () => {
     expect(dom.window.document.querySelector('#test-2').childElementCount).toBe(
-      1,
+      1
     );
   });
 });
