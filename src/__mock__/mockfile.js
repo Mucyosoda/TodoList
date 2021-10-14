@@ -1,4 +1,4 @@
-import { tasktodo, inputEvent } from '../testdom.js';
+import { tasktodo } from '../testdom.js';
 
 const taskCompleted = () => {
   const items = [
