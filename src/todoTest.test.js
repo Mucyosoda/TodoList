@@ -35,12 +35,14 @@ describe('remove task', () => {
   });
 });
 
-describe('should edit the input content', () => {
-  test('should edit', () => {
-    expect(editTask('This is new input value')).toEqual([
-      { id: 1, description: 'This is new input value', complete: true },
-      { id: 2, description: 'item 2', complete: true },
-      { id: 3, description: 'item 3', complete: false },
-    ]);
+describe('Edit existing items test', () => {
+  test('Todo edit function', () => {
+    const takenArr = [{ index: 2, description: 'push in this' }];
+    const id2 = '2';
+    const newestItem = 'push this in';
+
+    editTodo(takenArr, id2, newestItem);
+
+    expect(takenArr[0].description).toBe('push this in');
   });
 });
