@@ -20,3 +20,4 @@ const remove = dom.window.document.getElementById('event-handler');
 exports.tasktodo = tasktodo;
 exports.dom = dom;
 exports.remove = remove;
+
