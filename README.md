@@ -5,6 +5,7 @@
 > this project is designed to manage daily activities, you can add remove edit and delete activity, you can select complete or uncomplete activities.
 
 ![screenshot](./app_screenshot.png)
+![screenshot](./app_screenshot2.png)
 
 Additional description about the project and its features.
 

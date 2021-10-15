@@ -14,3 +14,33 @@ export const addTaskList = (itemsArray, value) => {
 
   return itemsArray;
 };
+
+export const editTask = (itemsArray, id, newValue) => {
+  itemsArray.forEach((item) => {
+    if (item.index.toString() === id) {
+      item.description = newValue;
+    }
+  });
+};
+
+export const updateCompleted = (item, input) => {
+  item.completed = input.checked;
+};
+
+export const clearTaskCompleted = (array) => {
+  let resultArray = array;
+  const todoArray = document.querySelectorAll('.todo-item');
+  todoArray.forEach((div) => {
+    const input = div.querySelector('input');
+    if (input.checked) {
+      div.remove();
+      resultArray = array.filter((something) => {
+        if (something.index.toString() === div.id) {
+          return false;
+        }
+        return true;
+      });
+    }
+  });
+  return resultArray;
+};

@@ -2,9 +2,9 @@ import { tasktodo } from '../testdom.js';
 
 const taskCompleted = () => {
   const items = [
-    { description: 'item 1', complete: false },
-    { description: 'item 2', complete: false },
-    { description: 'item 3', complete: false },
+    { id: 1, description: 'item 1', complete: false },
+    { id: 2, description: 'item 2', complete: false },
+    { id: 3, description: 'item 3', complete: false },
   ];
 
   for (let i = 0; i < items.length; i += 1) {
@@ -18,9 +18,9 @@ const taskCompleted = () => {
 
 const taskUncompleted = () => {
   const items = [
-    { description: 'item 1', complete: true },
-    { description: 'item 2', complete: false },
-    { description: 'item 3', complete: false },
+    { id: 1, description: 'item 1', complete: true },
+    { id: 2, description: 'item 2', complete: false },
+    { id: 3, description: 'item 3', complete: false },
   ];
 
   for (let i = 0; i < items.length; i += 1) {
@@ -32,13 +32,14 @@ const taskUncompleted = () => {
 
   return items;
 };
-const items = [
-  { id: 1, description: 'item 1', complete: true },
-  { id: 2, description: 'item 2', complete: true },
-  { id: 3, description: 'item 3', complete: false },
-];
 
-const removeTasks = (items) => {
+const removeTasks = () => {
+  const items = [
+    { id: 1, description: 'item 1', complete: true },
+    { id: 2, description: 'item 2', complete: true },
+    { id: 3, description: 'item 3', complete: false },
+  ];
+
   for (let i = 0; i < items.length; i += 1) {
     items.filter((item) => {
       if (item.complete) {
@@ -58,7 +59,7 @@ const removeTasks = (items) => {
 
   return items;
 };
-removeTasks(items);
+
 exports.taskCompleted = taskCompleted;
 exports.taskUncompleted = taskUncompleted;
 exports.removeTasks = removeTasks;
