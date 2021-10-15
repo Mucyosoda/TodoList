@@ -30,7 +30,7 @@ describe('remove a task from List', () => {
   });
 });
 
-describe('Test edit existing items', () => {
+describe('Test edit existing task', () => {
   test('Task edit function', () => {
     const takenArr = [{ index: 2, description: 'push in this' }];
     const id2 = '2';
