@@ -41,7 +41,7 @@ describe('Test edit existing items', () => {
   });
 });
 
-describe('Update items that are completed', () => {
+describe('Update all items that are completed', () => {
   test('Test updateCompleted function', () => {
     const newItem = { completed: true };
     const newInput = { checked: true };
