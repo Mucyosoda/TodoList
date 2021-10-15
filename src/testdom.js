@@ -16,6 +16,7 @@ const dom = new JSDOM(`<!DOCTYPE html>
 </html>`);
 
 const tasktodo = dom.window.document.getElementById('2');
-const inputEvent = dom.window.document.getElementById('input');
+const remove = dom.window.document.getElementById('event-handler');
 exports.tasktodo = tasktodo;
-exports.inputEvent = inputEvent;
+exports.dom = dom;
+exports.remove = remove;
