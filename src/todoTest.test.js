@@ -27,7 +27,7 @@ describe('remove task', () => {
   });
   test('should not have childs', () => {
     expect(dom.window.document.querySelector('#test-2').childElementCount).toBe(
-      1,
+      1
     );
   });
 });
