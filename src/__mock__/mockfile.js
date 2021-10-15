@@ -1,4 +1,5 @@
-import { tasktodo } from '../testdom.js';
+import { tasktodo, inputEvent } from '../testdom.js';
+
 
 const taskCompleted = () => {
   const items = [
@@ -59,6 +60,24 @@ const removeTasks = () => {
 
   return items;
 };
+
+const editTask = (string) => {
+  const items = [
+    { id: 1, description: 'item 1', complete: true },
+    { id: 2, description: 'item 2', complete: true },
+    { id: 3, description: 'item 3', complete: false },
+  ];
+  inputEvent.removeAttribute('readonly');
+  inputEvent.value = string;
+  for (let i = 0; i < items.length; i += 1) {
+    const editParent = parseInt(tasktodo.parentNode.parentNode.id, 10);
+    if (editParent === items[i].id) {
+      items.description = inputEvent.value;
+    }
+  }
+  return items;
+};
 exports.taskCompleted = taskCompleted;
 exports.taskUncompleted = taskUncompleted;
 exports.removeTasks = removeTasks;
+exports.editTask = editTask;

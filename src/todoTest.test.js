@@ -1,30 +1,46 @@
 import { addTaskList, removeTaskList } from './todoTest.js';
 
-describe(' add new task', () => {
-  test('check addTaskList function', () => {
-    // Arrange
-    let testArray = [1, 2, 3, 4];
+const { dom } = require('./testdom.js');
 
-    // Act
-    testArray = addTaskList(testArray, 'Add new task');
+jest.mock('./update');
+const editTask = require('./update.js');
 
-    // Assert
-    const latestElement = testArray[testArray.length - 1];
-    expect(testArray).toHaveLength(5);
-    expect(latestElement.completed).toBe(false);
-    expect(latestElement.description).toBe('Add new task');
-    expect(latestElement.index).toBe(testArray.length);
+describe('add new task', () => {
+  const empArr = [];
+  const item = {
+    completed: false,
+    description: 'Laxmi',
+    index: 1,
+  };
+  test('array length is 1', () => {
+    expect(addTaskList(empArr, item.description)).toContainEqual(item);
+  });
+
+  test('array is not null', () => {
+    expect(addTaskList).not.toBeNull();
   });
 });
 
 describe('remove task', () => {
   test('check removeTaskList function', () => {
-    // Arrange
     const itemtodo = { index: 3 };
     const id = '3';
-    // Act
     const result = removeTaskList(itemtodo, id);
-    // Assert
     expect(result).toBe(false);
+  });
+  test('should not have childs', () => {
+    expect(dom.window.document.querySelector('#test-2').childElementCount).toBe(
+      1,
+    );
+  });
+});
+
+describe('should edit the input content', () => {
+  test('should edit', () => {
+    expect(editTask('This is new input value')).toEqual([
+      { id: 1, description: 'This is new input value', complete: true },
+      { id: 2, description: 'item 2', complete: true },
+      { id: 3, description: 'item 3', complete: false },
+    ]);
   });
 });
