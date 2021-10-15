@@ -57,3 +57,22 @@ describe('A test to update items that are completed', () => {
     expect(newItem.completed).toBe(newInput.checked);
   });
 });
+
+describe('A clear completed', () => {
+  test('Test function', () => {
+    document.body.innerHTML = `
+      <div class="todo-item">
+          <input type="checkbox"></input>
+      </div>
+      <div class="todo-item">
+          <input type="checkbox" checked></input>
+      </div>
+      <div class="todo-item>
+          <input type="checkbox"></input>
+      </div>
+      `;
+    clearCompletedTodos([]);
+    const remainingItems = document.querySelectorAll('.todo-item');
+    expect(remainingItems).toHaveLength(1);
+  });
+});
