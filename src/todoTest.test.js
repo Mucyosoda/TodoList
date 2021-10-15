@@ -46,3 +46,14 @@ describe('Edit existing items test', () => {
     expect(takenArr[0].description).toBe('push this in');
   });
 });
+
+describe('A test to update items that are completed', () => {
+  test('Test updateCompleted function', () => {
+    const newItem = { completed: true };
+    const newInput = { checked: true };
+
+    updateCompleted(newItem, newInput);
+
+    expect(newItem.completed).toBe(newInput.checked);
+  });
+});
